@@ -127,15 +127,20 @@ export async function main(ns) {
 		var maxFactionLen = 16;
 		output.push(await lineWrap("STATS AND AUGMENTATIONS MONITOR"));
 		output.push(await lineWrap(""));
-		output.push(await lineWrap(`Karma: ${ns.heart.break().toFixed(3)} -- Tor Browser: ${await ns.hasTorRouter()}`));
+		output.push(await lineWrap(`Karma: ${await ns.nFormat(ns.heart.break(), '0.000a')} -- Tor Browser: ${await ns.hasTorRouter()}`));
 		output.push(await lineWrap(`Faction ------ Rep --- Fav --- Augs`));
 		for (var i = 0; i < factions.length; i++) {
+			var rep; var favor; var augAvail; 
 			var faction = factions[i];
-			//var factionRep = wait ns.singularity.getFactionRep(factiion);
+			rep = await ns.nFormat(await ns.singularity.getFactionRep(faction), '0.0a');
+			favor = await ns.nFormat(await ns.singularity.getFactionFavor(faction), '0a');
+			augAvail = (await ns.singularity.getAugmentationsFromFaction(faction)).length;
 			if (faction.length < maxFactionLen) {
 				faction = `${faction}${' '.repeat(maxFactionLen - faction.length)}`;
 			}
-			output.push(await lineWrap(`${faction} -- UNLOCK SINGULARITY API `));
+			
+
+			output.push(await lineWrap(`${faction} -- ${rep} -- ${favor} -- ${augAvail}`));
 		}
 
 		return (output);
