@@ -31,3 +31,12 @@ TODO: Add check to ignore task reassignment if sleeve shock > threshold.
 Generates a dashboard window to monitor multiple aspects of the game instead of having to click through multiple menus in the game UI. Visualises a lot of functionality of the other automation scripts as well as introduces distinct visualisations.
 
 TODO: Incorporate singularity API functionality and rebuild gang dashboard to bring across features from the gang.js script.
+
+## Copyright
+
+Copyright (c) 2023 Josh (github.com/bearnz). All rights reserved.
+
+No licence is granted. You are welcome to read this code and to fork it on
+GitHub; you may not use, copy, modify or redistribute it without permission.
+See [NOTICE](NOTICE) for the terms, and open an issue if you would like to use
+any of it.
